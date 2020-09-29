@@ -1,6 +1,7 @@
 package javaproject;
 
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class AddBookSys {
 	
@@ -13,8 +14,8 @@ public class AddBookSys {
 		long phoneNo;
 		AddContactArray add = new AddContactArray();
 		
-		while(choice!=3) {
-			System.out.println("Enter your choice:\n1. Create new Address Book\n2. Select AddressBook\n3. Exit");
+		while(choice!=5) {
+			System.out.println("Enter your choice:\n1. Create new Address Book\n2. Select AddressBook\n3. Search person by city\n4. Count by City\n5. Exit");
 			choice =sc.nextInt();
 			switch(choice) {
 			case 1:
@@ -29,8 +30,19 @@ public class AddBookSys {
 				add.selectAddBook(name);
 				break;
 			case 3:
+				System.out.println("Enter City Name:");
+				city=sc.next();
+				add.searchCity(city);
+				break;
+			case 5:
 				choice=4;
 				break;
+			case 4:
+				System.out.println("Enter City Name:");
+				city=sc.next();
+				add.countByCity(city);
+				break;
+			default: System.out.println("Wrong choice");
 			}
 		while(choice!=4) {
 			
@@ -76,7 +88,6 @@ public class AddBookSys {
 				}
 				else System.out.println("Record Not Found");
 				
-				
 				break;
 			case 3:
 				System.out.println("Enter First Name:");
@@ -91,7 +102,6 @@ public class AddBookSys {
 			case 4:
 				break;
 			default: System.out.println("Wrong choice");
-				
 				
 		
 		}

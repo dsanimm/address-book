@@ -1,6 +1,12 @@
 package javaproject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddContactArray {
 	//private HashMap<String,AddressContact> add;
@@ -32,5 +38,14 @@ public class AddContactArray {
 		arr.remove(firstName);
 		System.out.println("Contact deleted");
 	}
-
+	public void searchCity(String cityname) {
+		addbook.entrySet().stream().forEach(y->y.getValue().entrySet().stream().filter(m-> ((m.getValue()).city).equals(cityname)).map(Map.Entry::getValue).map(a->a.firstName).forEach(System.out::println));
+	
+}
+	public void countByCity(String cityname) {
+		List<Entry<String, AddressContact>> myList = new ArrayList<Entry<String, AddressContact>>();
+		addbook.entrySet().stream().forEach(y->y.getValue().entrySet().stream().filter(m-> ((m.getValue()).city).equals(cityname)).forEach(e->myList.add(e)));
+		System.out.println(myList.size());
+	
+}
 }
