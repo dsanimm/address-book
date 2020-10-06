@@ -15,7 +15,7 @@ public class AddBookSys {
 		AddContactArray add = new AddContactArray();
 		
 		while(choice!=5) {
-			System.out.println("Enter your choice:\n1. Create new Address Book\n2. Select AddressBook\n3. Search person by city\n4. Count by City\n5. Exit");
+			System.out.println("Enter your choice:\n1. Create new Address Book\n2. Select AddressBook\n3. Search person by city\n4. Count by City\n5. List of names\n6. Exit");
 			choice =sc.nextInt();
 			switch(choice) {
 			case 1:
@@ -34,7 +34,7 @@ public class AddBookSys {
 				city=sc.next();
 				add.searchCity(city);
 				break;
-			case 5:
+			case 6:
 				choice=4;
 				break;
 			case 4:
@@ -42,6 +42,9 @@ public class AddBookSys {
 				city=sc.next();
 				add.countByCity(city);
 				break;
+			case 5:
+				System.out.println("List of names sorted:");
+				add.sortName();
 			default: System.out.println("Wrong choice");
 			}
 		while(choice!=4) {
