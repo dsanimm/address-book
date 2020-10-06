@@ -65,32 +65,49 @@ public class AddContactArray {
 
 	public void sortByZip() {
 		List<AddressContact> myList = new ArrayList<AddressContact>();
-		addbook.entrySet().stream().forEach(y -> y.getValue().entrySet().stream().sorted((s1, s2) -> (s1.getValue().zip)>(s2.getValue().zip) ? 1 : 0).forEach(e -> myList.add(e.getValue())));
-		Iterator<AddressContact> i = myList.iterator();
-		while(i.hasNext()) {
-	         System.out.println("First Name: "+i.next().firstName+"\nLast Name: "+i.next().lastName+"\nLast Name: "+i.next().city+"\nLast Name: "+i.next().email+"\nLast Name: "+i.next().phoneNo+"\nLast Name: "+i.next().zip);
-	      }
 
+		addbook.entrySet().stream()
+				.forEach(y -> y.getValue().entrySet().stream()
+						.sorted((s1, s2) -> (s1.getValue().zip) > (s2.getValue().zip) ? 1 : 0)
+						.forEach(e -> myList.add(e.getValue())));
+		Iterator<AddressContact> i = myList.iterator();
+
+		for (AddressContact e : myList) {
+			System.out.println("First Name: " + e.firstName + "\nLast Name: " + e.lastName
+					+ "\nCity Name: " + e.city + "\nEmail : " + e.email + "\nPhone No: "
+					+ e.phoneNo + "\nZip Code: " + e.zip);
+		}
 	}
+
 	public void sortByCity() {
 		List<AddressContact> myList = new ArrayList<AddressContact>();
-		addbook.entrySet().stream().forEach(y -> y.getValue().entrySet().stream().sorted((s1, s2) -> s1.getValue().firstName.compareTo(s2.getValue().firstName)).forEach(e -> myList.add(e.getValue())));
+		addbook.entrySet().stream()
+				.forEach(y -> y.getValue().entrySet().stream()
+						.sorted((s1, s2) -> s1.getValue().firstName.compareTo(s2.getValue().firstName))
+						.forEach(e -> myList.add(e.getValue())));
+
 		Iterator<AddressContact> i = myList.iterator();
-		while(i.hasNext()) {ssss
-	         System.out.println("First Name: "+i.next().firstName+"\nLast Name: "+i.next().lastName+"\nLast Name: "+i.next().city+"\nLast Name: "+i.next().email+"\nLast Name: "+i.next().phoneNo+"\nLast Name: "+i.next().zip);
-	      }
+		for (AddressContact e : myList) {
+			System.out.println("First Name: " + e.firstName + "\nLast Name: " + e.lastName
+					+ "\nCity Name: " + e.city + "\nEmail : " + e.email + "\nPhone No: "
+					+ e.phoneNo + "\nZip Code: " + e.zip);
+		}
 
 	}
+
 	public void sortName() {
 		List<AddressContact> myList = new ArrayList<AddressContact>();
-		addbook.entrySet().stream().forEach(y -> y.getValue().entrySet().stream().sorted((s1, s2) -> s1.getValue().city.compareTo(s2.getValue().city)).forEach(e -> myList.add(e.getValue())));
+		addbook.entrySet().stream()
+				.forEach(y -> y.getValue().entrySet().stream()
+						.sorted((s1, s2) -> s1.getValue().city.compareTo(s2.getValue().city))
+						.forEach(e -> myList.add(e.getValue())));
 		Iterator<AddressContact> i = myList.iterator();
-		while(i.hasNext()) {
-	         System.out.println("First Name: "+i.next().firstName+"\nLast Name: "+i.next().lastName+"\nLast Name: "+i.next().city+"\nLast Name: "+i.next().email+"\nLast Name: "+i.next().phoneNo+"\nLast Name: "+i.next().zip);
-	      }
+
+		for (AddressContact e : myList) {
+			System.out.println("First Name: " + e.firstName + "\nLast Name: " + e.lastName
+					+ "\nCity Name: " + e.city + "\nEmail : " + e.email + "\nPhone No: "
+					+ e.phoneNo + "\nZip Code: " + e.zip);
+		}
 
 	}
 }
-
-
-
