@@ -3,6 +3,7 @@ package javaproject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -62,11 +63,34 @@ public class AddContactArray {
 
 	}
 
+	public void sortByZip() {
+		List<AddressContact> myList = new ArrayList<AddressContact>();
+		addbook.entrySet().stream().forEach(y -> y.getValue().entrySet().stream().sorted((s1, s2) -> (s1.getValue().zip)>(s2.getValue().zip) ? 1 : 0).forEach(e -> myList.add(e.getValue())));
+		Iterator<AddressContact> i = myList.iterator();
+		while(i.hasNext()) {
+	         System.out.println("First Name: "+i.next().firstName+"\nLast Name: "+i.next().lastName+"\nLast Name: "+i.next().city+"\nLast Name: "+i.next().email+"\nLast Name: "+i.next().phoneNo+"\nLast Name: "+i.next().zip);
+	      }
+
+	}
+	public void sortByCity() {
+		List<AddressContact> myList = new ArrayList<AddressContact>();
+		addbook.entrySet().stream().forEach(y -> y.getValue().entrySet().stream().sorted((s1, s2) -> s1.getValue().firstName.compareTo(s2.getValue().firstName)).forEach(e -> myList.add(e.getValue())));
+		Iterator<AddressContact> i = myList.iterator();
+		while(i.hasNext()) {ssss
+	         System.out.println("First Name: "+i.next().firstName+"\nLast Name: "+i.next().lastName+"\nLast Name: "+i.next().city+"\nLast Name: "+i.next().email+"\nLast Name: "+i.next().phoneNo+"\nLast Name: "+i.next().zip);
+	      }
+
+	}
 	public void sortName() {
-		ArrayList<String> myList = new ArrayList<String>();
-		addbook.entrySet().stream().forEach(y -> y.getValue().entrySet().stream().forEach(e -> myList.add(e.getValue().firstName)));
-		Collections.sort(myList);
-		System.out.println(myList);
+		List<AddressContact> myList = new ArrayList<AddressContact>();
+		addbook.entrySet().stream().forEach(y -> y.getValue().entrySet().stream().sorted((s1, s2) -> s1.getValue().city.compareTo(s2.getValue().city)).forEach(e -> myList.add(e.getValue())));
+		Iterator<AddressContact> i = myList.iterator();
+		while(i.hasNext()) {
+	         System.out.println("First Name: "+i.next().firstName+"\nLast Name: "+i.next().lastName+"\nLast Name: "+i.next().city+"\nLast Name: "+i.next().email+"\nLast Name: "+i.next().phoneNo+"\nLast Name: "+i.next().zip);
+	      }
 
 	}
 }
+
+
+
